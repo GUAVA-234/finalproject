@@ -3,27 +3,30 @@
 #include<stdlib.h>
 #include<time.h>
 #include"../include/user.h"
+//函數庫
 int difficulty = 0;
-struct play
+struct player
 {
 	int HP, attackrate, healrate;
-};
+	// 血量  攻擊倍率	治療倍率
+};	
+	player play1,play2;
 int main(void)
 {	
-	play play1;
 	while(difficulty != 1 && difficulty !=2 && difficulty!=3)
 	{ 
 	printf_s("請選擇難度\n");
 	printf_s("(1)簡單(2)普通(3)困難\n");
 	scanf_s("%d", &difficulty);
 	}
-	int boss;
-	boss = game(difficulty);
+	int boss = game(difficulty);
+	//BOSS血量
 	/*while (boss!=0&&play.HP!=0)
 	{
 		
 	}*/
-	play1.HP;
+	//主遊戲迴圈
 	timerand();
+	//產生1~15的亂數
 	return 0;
 }

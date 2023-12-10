@@ -2,7 +2,6 @@
 int boss;
 int game(int difficulty)
 {	
-	
 	switch (difficulty)
 	{
 	case 1:
