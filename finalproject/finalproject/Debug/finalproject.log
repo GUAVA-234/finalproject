@@ -1,2 +1,7 @@
 ﻿  main.cpp
-  finalproject.vcxproj -> C:\Users\梁啟聖\Desktop\finalproject\finalproject\Debug\finalproject.exe
+  timerand.cpp
+c:\users\chngw\onedrive\桌面\finalproject\finalproject\source\timerand.cpp(6): warning C4244: '引數': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
+  game.cpp
+  正在產生程式碼...
+  LINK : 最後的累加連結找不到或未建置 C:\Users\chngw\OneDrive\桌面\finalproject\finalproject\Debug\finalproject.exe，正在執行完整連結
+  finalproject.vcxproj -> C:\Users\chngw\OneDrive\桌面\finalproject\finalproject\Debug\finalproject.exe
