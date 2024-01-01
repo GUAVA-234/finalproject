@@ -1,3 +1,3 @@
 #pragma once
-int timerand();
+int timerand(int a);
 int game(int difficulty);
