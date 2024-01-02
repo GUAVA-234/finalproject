@@ -128,7 +128,7 @@ void performAction(Player *player, Boss *boss, int turn,int number)
 	}
 }
 
-void bossAction(Player players[], int playerCount, Boss *boss) 
+void bossAction(Player players[], int playerCount) 
 {
 	
 	int target = getRandom(0, playerCount - 1);
@@ -146,7 +146,7 @@ void bossAction(Player players[], int playerCount, Boss *boss)
 	}
 	else
 	{
-		return bossAction(players, 3, &boss);
+		return bossAction(players, playerCount);
 	}
 }
 
@@ -197,13 +197,13 @@ int main()
 				performAction(&players[i], &boss, turn, i+1);
 				if (boss.health <= 0)
 				{
-					printf("所有玩家死亡。Boss勝利！\n");
+					printf("BOSS死了 玩家勝利！\n");
 					return 0;
 				}
 			}
 		}
 
-		bossAction(players, 3, &boss);
+		bossAction(players, 3);
 		for (int i = 0; i < 3; i++) 
 		{
 			if (players[i].health <= 0) 
@@ -224,6 +224,7 @@ int main()
 
 		if (allPlayersDead) 
 		{
+			printf("%d\n", allPlayersDead);
 			printf("所有玩家都死亡了! BOSS贏了!\n");
 			return 0;
 		}
