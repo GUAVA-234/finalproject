@@ -1,6 +1,9 @@
-﻿D:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(376,5): warning MSB8004: Intermediate 目錄結尾不是結尾斜線。這個建置執行個體將會加入此斜線，因為這樣才能正確評估 Intermediate 目錄。
-D:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output 目錄結尾不是結尾斜線。這個建置執行個體將會加入此斜線，因為這樣才能正確評估 Output 目錄。
-D:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: 中繼目錄 (..\temp\debug\) 包含從其他專案 (Example.vcxproj) 共用的檔案。這可能導致錯誤的清除和重建行為。
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(376,5): warning MSB8004: Intermediate 目錄結尾不是結尾斜線。這個建置執行個體將會加入此斜線，因為這樣才能正確評估 Intermediate 目錄。
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output 目錄結尾不是結尾斜線。這個建置執行個體將會加入此斜線，因為這樣才能正確評估 Output 目錄。
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: 中繼目錄 (..\temp\debug\) 包含從其他專案 (Example.vcxproj) 共用的檔案。這可能導致錯誤的清除和重建行為。
   Main.c
-d:\data\desktop\github\finalproject\final project_v2.0\source\main.c(103): warning C4244: '函式': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
-  Example.vcxproj -> D:\Data\Desktop\Github\finalproject\Final Project_V2.0\Example\..\temp\debug\FinalProject.exe
+c:\users\梁啟聖\desktop\finalproject\final project_v2.0\source\main.c(148): warning C4047: '函式': 'Boss *' 與 'Boss **' 間接取值的層級不同
+c:\users\梁啟聖\desktop\finalproject\final project_v2.0\source\main.c(148): warning C4024: 'bossAction': 型式和實質參數 3 不同的類型
+c:\users\梁啟聖\desktop\finalproject\final project_v2.0\source\main.c(148): warning C4098: 'bossAction': 'void' 函式正在傳回值
+c:\users\梁啟聖\desktop\finalproject\final project_v2.0\source\main.c(154): warning C4244: '函式': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
+  Example.vcxproj -> C:\Users\梁啟聖\Desktop\finalproject\Final Project_V2.0\Example\..\temp\debug\FinalProject.exe
