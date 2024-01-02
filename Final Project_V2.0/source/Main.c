@@ -61,7 +61,7 @@ void performAction(Player *player, Boss *boss, int turn,int number)
 {
 	if (turn >= player->next_action_turn) 
 	{
-		printf("玩家行動 (1-攻擊, 2-治療): ");
+		printf("玩家 %d 行動 (1-攻擊, 2-治療): ",number);
 		int choice;
 		scanf("%d", &choice);
 
@@ -90,6 +90,7 @@ void performAction(Player *player, Boss *boss, int turn,int number)
 
 void bossAction(Player players[], int playerCount, Boss *boss) 
 {
+	
 	int target = getRandom(0, playerCount - 1);
 	int damage = getRandom(10, 30);
 	printf("BOSS攻擊玩家 %d 造成 %d 點傷害!\n", target + 1, damage);
@@ -115,6 +116,7 @@ int main()
 	
 	printf("請選擇難度 (1-簡單, 2-普通, 3-困難): ");
 	scanf("%d", &difficulty);
+	printf("\n\n");
 	bossMaxHealth = (difficulty == 1) ? 300 : (difficulty == 2) ? 500 : 1000;
 	initializeBoss(&boss, bossMaxHealth);
 
@@ -123,20 +125,27 @@ int main()
 	initializePlayer(&players[2], 100, 30, 60, 3); // Player C
 
 	int turn = 1;
-	while (boss.health > 0) {
-		printf("\n\n回合 %d\n", turn);
+	while (boss.health > 0) 
+	{
+		printf("回合 %d\n", turn);
 		printf("玩家 1 血量: ");
 		displayHealthBar(players[0].health, 100);
 		printf("玩家 2 血量: ");
 		displayHealthBar(players[1].health, 100);
 		printf("玩家 3 血量: ");
 		displayHealthBar(players[2].health, 100);
+		printf("Boss 血量:   ");
+		displayHealthBar(boss.health, bossMaxHealth);
+		
 		printf("\n");
 
-		for (int i = 0; i < 3; i++) {
-			if (players[i].health > 0) {
+		for (int i = 0; i < 3; i++) 
+		{
+			if (players[i].health > 0) 
+			{
 				performAction(&players[i], &boss, turn, i+1);
-				if (boss.health <= 0) {
+				if (boss.health <= 0)
+				{
 					printf("所有玩家死亡。Boss勝利！\n");
 					return 0;
 				}
@@ -144,26 +153,35 @@ int main()
 		}
 
 		bossAction(players, 3, &boss);
-		for (int i = 0; i < 3; i++) {
-			if (players[i].health <= 0) {
+		for (int i = 0; i < 3; i++) 
+		{
+			if (players[i].health <= 0) 
+			{
 				printf("玩家 %d 死了!\n", i + 1);
 			}
 		}
 
 		int allPlayersDead = 1;
-		for (int i = 0; i < 3; i++) {
-			if (players[i].health > 0) {
+		for (int i = 0; i < 3; i++)
+		{
+			if (players[i].health > 0)
+			{
 				allPlayersDead = 0;
 				break;
 			}
 		}
 
-		if (allPlayersDead) {
+		if (allPlayersDead) 
+		{
 			printf("所有玩家都死亡了! BOSS贏了!\n");
 			return 0;
 		}
 
 		turn++;
+
+		printf("\n");
+		system("pause");
+		system("cls");
 	}
 
 	return 0;
