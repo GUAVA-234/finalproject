@@ -47,9 +47,49 @@ void displayHealthBar(int currentHealth, int maxHealth)
 	{
 		if (i < healthUnits) 
 		{
-			printf("█");
+			printf("\033[37m█\033[37m");
 		}
 		else 
+		{
+			printf(" ");
+		}
+	}
+	printf("] %d/%d\n", currentHealth, maxHealth);
+}
+
+void displayHealthBarRED(int currentHealth, int maxHealth)
+{
+	int barWidth = 20;
+	int healthUnits = (currentHealth * barWidth) / maxHealth;
+
+	printf("[");
+	for (int i = 0; i < barWidth; i++)
+	{
+		if (i < healthUnits)
+		{
+			printf("\033[31m█\033[37m");
+		}
+		else
+		{
+			printf(" ");
+		}
+	}
+	printf("] %d/%d\n", currentHealth, maxHealth);
+}
+
+void displayHealthBarGREEN(int currentHealth, int maxHealth)
+{
+	int barWidth = 20;
+	int healthUnits = (currentHealth * barWidth) / maxHealth;
+
+	printf("[");
+	for (int i = 0; i < barWidth; i++)
+	{
+		if (i < healthUnits)
+		{
+			printf("\033[32m█\033[37m");
+		}
+		else
 		{
 			printf(" ");
 		}
@@ -71,7 +111,7 @@ void performAction(Player *player, Boss *boss, int turn,int number)
 			printf("玩家 %d 攻擊 %d 點傷害!\n",number, damage);
 			boss->health -= damage;
 			printf("Boss 血量: ");
-			displayHealthBar(boss->health, bossMaxHealth);// 更新Boss血量條
+			displayHealthBarRED(boss->health, bossMaxHealth);// 更新Boss血量條
 			printf("\n");
 		}
 		else
@@ -80,7 +120,7 @@ void performAction(Player *player, Boss *boss, int turn,int number)
 			printf("玩家 %d 恢復 %d 點生命!\n",number ,heal);
 			player->health += heal;
 			if (player->health > 100) player->health = 100;
-			displayHealthBar(player->health, 100); // 更新玩家血量條
+			displayHealthBarGREEN(player->health, 100); // 更新玩家血量條
 			printf("\n");
 		}
 
@@ -93,10 +133,21 @@ void bossAction(Player players[], int playerCount, Boss *boss)
 	
 	int target = getRandom(0, playerCount - 1);
 	int damage = getRandom(10, 30);
-	printf("BOSS攻擊玩家 %d 造成 %d 點傷害!\n", target + 1, damage);
-	players[target].health -= damage;
-	printf("玩家 %d 血量: ", target + 1);
-	displayHealthBar(players[target].health, 100); // 更新被攻擊玩家的血量條
+	if (players[target].health!=0)
+	{
+		printf("BOSS攻擊玩家 %d 造成 %d 點傷害!\n", target + 1, damage);
+		players[target].health -= damage;
+		if (players[target].health < 0)
+		{
+			players[target].health = 0;
+		}
+		printf("玩家 %d 血量: ", target + 1);
+		displayHealthBarRED(players[target].health, 100); // 更新被攻擊玩家的血量條
+	}
+	else
+	{
+		return bossAction(players, 3, &boss);
+	}
 }
 
 int main() 
@@ -183,6 +234,7 @@ int main()
 		system("pause");
 		system("cls");
 	}
+	
 
 	return 0;
 }
